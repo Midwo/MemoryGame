@@ -1,0 +1,227 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin: 0;
+    /* Background pattern from Toptal Subtle Patterns */
+    background-image: url('background/shattered.png');
+    font-size: 28px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+a:link {
+    color: #209781;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #209781;
+}
+
+a:active {
+    color: #209781;
+}
+
+a:hover {
+    color: #E9B64A;
+}
+
+
+h1 {
+    font-size: 64px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 5px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+p {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.board {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-image: url('img/hidecard.png');
+    border: 4px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    filter: brightness(74%);
+    margin-left: 6px;
+    display: inline-block;
+    transition: all 0.4s ease-in;
+    margin-right: 6px;
+}
+
+    .card:hover {
+        border: 4px solid rgba(0, 102, 235, 0.62);
+        filter: brightness(100%);
+    }
+
+.score {
+    margin-top: 25px;
+    letter-spacing: 2px;
+}
+
+
+#info-game {
+    position: fixed;
+    right: 0px;
+    top: 30%;
+    background-color: rgba(0, 102, 235, 0.62);
+    writing-mode: vertical-rl;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 15px 3px 15px 3px;
+    color: white;
+    font-size: 20px;
+    margin: -2.5em 0 0 0;
+    font-weight: bold;
+    border-radius: 1em 0em 0em 1em;
+    cursor: pointer;
+    border-bottom: 3px solid rgb(13, 104, 221);
+    border-left: 3px solid rgb(13, 104, 221);
+    border-top: 3px solid rgb(13, 104, 221);
+}
+
+    #info-game:hover {
+        background-color: rgb(13, 104, 221);
+        -webkit-box-shadow: -11px 0px 64px 5px rgba(0,0,0,0.25);
+        -moz-box-shadow: -11px 0px 64px 5px rgba(0,0,0,0.25);
+        box-shadow: -11px 0px 64px 5px rgba(0,0,0,0.25);
+    }
+
+#info-site {
+    position: fixed;
+    right: 0px;
+    top: 70%;
+    background-color: rgba(108, 167, 8, 0.62);
+    writing-mode: vertical-rl;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 15px 3px 15px 3px;
+    color: white;
+    font-size: 20px;
+    margin: -2.5em 0 0 0;
+    font-weight: bold;
+    border-radius: 1em 0em 0em 1em;
+    border-bottom: 3px solid rgb(103, 164, 0);
+    border-left: 3px solid rgb(103, 164, 0);
+    border-top: 3px solid rgb(103, 164, 0);
+}
+
+    #info-site:hover {
+        background-color: rgb(103, 164, 0);
+        -webkit-box-shadow: -11px 0px 64px 5px rgba(0,0,0,0.25);
+        -moz-box-shadow: -11px 0px 64px 5px rgba(0,0,0,0.25);
+        box-shadow: -11px 0px 64px 5px rgba(0,0,0,0.25);
+    }
+
+#div-bolid {
+    position: fixed;
+    top: 30%;
+    z-index: 5555;
+    padding-top: 250px;
+}
+
+@media only screen and (max-height: 650px) {
+    #info-site {
+        display: none;
+    }
+}
+
+
+
+.buttonstart {
+    background-color: #e5e5e5;
+    color: black;
+    padding: 20px 23px 20px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 28px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 90%;
+    letter-spacing: 3px;
+    border: 5px #4ea6ca;
+    border-style: outset;
+    -webkit-box-shadow: 10px 10px 76px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 76px -11px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 76px -11px rgba(0,0,0,0.75);
+}
+
+    .buttonstart span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.9s;
+    }
+
+        .buttonstart span:after {
+            content: '\00AB';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.9s;
+        }
+
+        .buttonstart span:before {
+            content: '\00BB';
+            opacity: 0;
+            transition: 0.9s;
+            top: 0;
+            transition: 0.9s;
+        }
+
+    .buttonstart:hover {
+        border-radius: 100%;
+    }
+
+        .buttonstart:hover span {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+            .buttonstart:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+
+            .buttonstart:hover span:before {
+                opacity: 1;
+                right: 0;
+            }
