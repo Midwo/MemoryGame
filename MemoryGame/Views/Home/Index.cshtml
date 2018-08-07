@@ -11,41 +11,41 @@
 
         <div class="board">
             <div id="contentUP">
-            <button class="buttonstart wow swing" onclick="level1()"><span>Start!</span></button>
-            @*<div class="card" id="c0"></div>
-        <div class="card" id="c1"></div>
-        <div class="clear: both"></div>
-        <div class="card" id="c2"></div>
-        <div class="card" id="c3"></div>*@
+                <button class="buttonstart wow swing" onclick="level1()"><span>Start!</span></button>
+                @*<div class="card" id="c0"></div>
+                    <div class="card" id="c1"></div>
+                    <div class="clear: both"></div>
+                    <div class="card" id="c2"></div>
+                    <div class="card" id="c3"></div>*@
 
-            @*<div class="clear: both"></div>*@
+                @*<div class="clear: both"></div>*@
 
-            @*<div class="card" id="c4"></div>
-        <div class="card" id="c5"></div>
-        <div class="card" id="c6"></div>
-        <div class="card" id="c7"></div>*@
+                @*<div class="card" id="c4"></div>
+                    <div class="card" id="c5"></div>
+                    <div class="card" id="c6"></div>
+                    <div class="card" id="c7"></div>*@
 
-            @*<div class="card" id="c8"></div>
-        <div class="card" id="c9"></div>
-        <div class="card" id="c10"></div>
-        <div class="card" id="c11"></div>
+                @*<div class="card" id="c8"></div>
+                    <div class="card" id="c9"></div>
+                    <div class="card" id="c10"></div>
+                    <div class="card" id="c11"></div>
 
-        <div class="card" id="c12"></div>
-        <div class="card" id="c13"></div>
-        <div class="card" id="c14"></div>
-        <div class="card" id="c15"></div>
+                    <div class="card" id="c12"></div>
+                    <div class="card" id="c13"></div>
+                    <div class="card" id="c14"></div>
+                    <div class="card" id="c15"></div>
 
-        <div class="card" id="c13"></div>
-        <div class="card" id="c14"></div>
-        <div class="card" id="c15"></div>
-        <div class="card" id="c16"></div>
+                    <div class="card" id="c13"></div>
+                    <div class="card" id="c14"></div>
+                    <div class="card" id="c15"></div>
+                    <div class="card" id="c16"></div>
 
-        <div class="card" id="c13"></div>
-        <div class="card" id="c14"></div>
-        <div class="card" id="c15"></div>
-        <div class="card" id="c16"></div>*@
-        </div>
-            <div id ="score" class="score">Sprawdzonych par: 0! </div>
+                    <div class="card" id="c13"></div>
+                    <div class="card" id="c14"></div>
+                    <div class="card" id="c15"></div>
+                    <div class="card" id="c16"></div>*@
+            </div>
+            <div id="score" class="score">Sprawdzonych par: 0! </div>
             <p>Szukaj i wyznaczaj poprawne pary tych samych kart!</p>
         </div>
 
@@ -53,7 +53,7 @@
 </main>
 
 @*<script src="jquery-3.3.1.min.js"></script>
-<script src="memory.js"></script>*@
+    <script src="memory.js"></script>*@
 
 
 
@@ -84,3 +84,74 @@
             <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
         </div>
     </div>*@
+
+
+<div class="col-md-12">
+    @*<div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Please enter the details below.</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group col-md-5">
+                <label>Student Name</label>
+                <input type="text" name="Number" id="Number" class="form-control" placeholder="Enter Student Name" required="" />
+            </div>
+            <div class="form-group col-md-5">
+                <label>Student Address</label>
+                <input type="text" name="StudentAddress" id="StudentAddress" class="form-control" placeholder="Enter Student Address" required="" />
+            </div>
+
+            <div class="form-group col-md-1">
+                <div style="float: right; display:inline-block;">
+                    <input class="btn btn-primary" name="submitButton" id="btnSave" onclick="Save()" value="Save" type="button">
+                </div>
+            </div>
+        </div>
+    </div>*@
+     <input class="btn btn-primary" name="submitButton" id="btnSave" onclick="Save()" value="Save" type="button">
+    <hr />
+    <h2>Top 5</h2>
+    <table id="tblTop5" class="table table-bordered table-striped table-responsive table-hover">
+        <thead>
+            <tr>
+                <th align="left" class="recordstop5">Sprawdzonych par</th>
+                <th align="left" class="recordstop5">Data gry</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        $(function () {
+            $("#tblTop5 tbody tr").remove();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetTop5")',
+                dataType: 'json',
+                data: { id: '' },
+                success: function (data) {
+                    var items = '';
+                    $.each(data, function (i, item) {
+                        var rows = "<tr>"
+                            + "<td class='recordstop5'>" + item.Number + "</td>"
+                      
+                            + "<td class='recordstop5'>" + item.Date + "</td>"
+                     
+                            + "</tr>";
+                        $('#tblTop5 tbody').append(rows);
+                    });
+                },
+                error: function (ex) {
+                    var r = jQuery.parseJSON(response.responseText);
+                    alert("Message: " + r.Message);
+                    alert("StackTrace: " + r.StackTrace);
+                    alert("ExceptionType: " + r.ExceptionType);
+                }
+            });
+            return false;
+        });
+    </script>
+}  

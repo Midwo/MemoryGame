@@ -299,3 +299,50 @@ function restore2Cards(number1, number2) {
     lock = false;
     firsthit = null;
 }
+
+function Save() {
+    var std = {};
+    //std.Number = $("#Number").val();
+    std.Number = numberHits;
+    $.ajax({
+        type: "POST",
+        url: "/Home/NewResult", // the URL of the controller action method
+        data: '{std: ' + JSON.stringify(std) + '}',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            LoadData();
+        },
+        error: function (req, status, error) {
+            alert("Błąd wstawiania danych"); 
+        }
+    });
+ 
+}
+
+function LoadData() {
+    $("#tblTop5 tbody tr").remove();
+    $.ajax({
+        type: 'POST',
+        url: "/Home/GetTop5",
+        dataType: 'json',
+        data: { id: '' },
+        success: function (data) {
+            var items = '';
+            $.each(data, function (i, item) {
+                var rows = "<tr>"
+                    + "<td class='recordstop5'>" + item.Number + "</td>"
+                    + "<td class='recordstop5'>" + item.Date + "</td>"
+                    + "</tr>";
+                $('#tblTop5 tbody').append(rows);
+            });
+        },
+        error: function (ex) {
+            var r = jQuery.parseJSON(response.responseText);
+            alert("Message: " + r.Message);
+            alert("StackTrace: " + r.StackTrace);
+            alert("ExceptionType: " + r.ExceptionType);
+        }
+    });
+    return false;
+}

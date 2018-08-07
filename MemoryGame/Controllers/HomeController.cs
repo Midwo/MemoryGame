@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MemoryGame.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace MemoryGame.Controllers
 {
     public class HomeController : Controller
     {
+        ResultsContext context = new ResultsContext();
         public ActionResult Index()
         {
             return View();
@@ -26,5 +28,24 @@ namespace MemoryGame.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult NewResult(Results std)
+        {
+            std.Date = DateTime.Now.ToString();
+            context.Results.Add(std);
+            context.SaveChanges();
+            string message = "SUCCESS";
+            return Json(new { Message = message, JsonRequestBehavior.AllowGet });
+        }
+        public JsonResult GetTop5(string id)
+        {
+            List<Results> tests = new List<Results>();
+            tests = context.Results.OrderBy(s => s.Number).Take(5).ToList();
+            return Json(tests, JsonRequestBehavior.AllowGet);
+        }
+
     }
+
+  
 }
