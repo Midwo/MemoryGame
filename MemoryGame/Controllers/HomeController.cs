@@ -40,9 +40,16 @@ namespace MemoryGame.Controllers
         }
         public JsonResult GetTop5(string id)
         {
-            List<Results> tests = new List<Results>();
-            tests = context.Results.OrderBy(s => s.Number).Take(5).ToList();
-            return Json(tests, JsonRequestBehavior.AllowGet);
+            List<Results> records = new List<Results>();
+            records = context.Results.OrderBy(s => s.Number).Take(5).ToList();
+            return Json(records, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetLastGame(string id)
+        {
+            List<Results> records = new List<Results>();
+            records = context.Results.OrderByDescending(s => s.ResultsID).Take(5).ToList();
+            return Json(records, JsonRequestBehavior.AllowGet);
         }
 
     }

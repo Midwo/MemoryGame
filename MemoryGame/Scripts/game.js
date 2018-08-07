@@ -311,7 +311,8 @@ function Save() {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
-            LoadData();
+            GetTop5();
+            GetLastRecords();
         },
         error: function (req, status, error) {
             alert("Błąd wstawiania danych"); 
@@ -320,7 +321,7 @@ function Save() {
  
 }
 
-function LoadData() {
+function GetTop5() {
     $("#tblTop5 tbody tr").remove();
     $.ajax({
         type: 'POST',
@@ -335,6 +336,33 @@ function LoadData() {
                     + "<td class='recordstop5'>" + item.Date + "</td>"
                     + "</tr>";
                 $('#tblTop5 tbody').append(rows);
+            });
+        },
+        error: function (ex) {
+            var r = jQuery.parseJSON(response.responseText);
+            alert("Message: " + r.Message);
+            alert("StackTrace: " + r.StackTrace);
+            alert("ExceptionType: " + r.ExceptionType);
+        }
+    });
+    return false;
+}
+
+function GetLastRecords() {
+    $("#tblLastGame tbody tr").remove();
+    $.ajax({
+        type: 'POST',
+        url: "/Home/GetLastGame",
+        dataType: 'json',
+        data: { id: '' },
+        success: function (data) {
+            var items = '';
+            $.each(data, function (i, item) {
+                var rows = "<tr>"
+                    + "<td class='recordsLastGame'>" + item.Number + "</td>"
+                    + "<td class='recordsLastGame'>" + item.Date + "</td>"
+                    + "</tr>";
+                $('#tblLastGame tbody').append(rows);
             });
         },
         error: function (ex) {
