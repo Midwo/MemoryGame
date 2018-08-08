@@ -44,9 +44,30 @@ p {
     letter-spacing: 2px;
     margin-top: 25px;
 }
+/*tr td:first-child {
+  
+}*/
+
+#downrecords {
+    text-align: center;
+    font-size: 14px;
+    padding: 0px;
+    margin-top: 50px;
+}
+#Top5 {
+    display: inline-block;
+    width: 40%;
+}
+#LastGame {
+    display: inline-block;
+    width: 40%;
+}
+th {
+    text-align: center;
+}
 
 .board {
-    width: 900px;
+    /*width: 900px;*/
     margin-left: auto;
     margin-right: auto;
     text-align: center;

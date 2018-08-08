@@ -202,6 +202,7 @@ function level5() {
 function end()
 {
     $("#contentUP").html('Gratulacje! Przeszedłeś cała grę! </br> <button class="buttonstart wow swing" onclick="level1()"><span>Jeszcze raz</span></button>');
+    Save();
 }
 function shuffle(a) {
     var cidx, ridx, tmp;
@@ -359,7 +360,8 @@ function GetLastRecords() {
             var items = '';
             $.each(data, function (i, item) {
                 var rows = "<tr>"
-                    + "<td class='recordsLastGame'>" + item.Number + "</td>"
+                    + "<td class='recordsLastGame'>" + item.ResultsID + "</td>"
+                    + "<td class='recordstop5'>" + item.Number + "</td>"
                     + "<td class='recordsLastGame'>" + item.Date + "</td>"
                     + "</tr>";
                 $('#tblLastGame tbody').append(rows);

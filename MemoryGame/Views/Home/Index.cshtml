@@ -1,123 +1,62 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Graw w pamięć";
 }
-<header>
-    <h1> Gra w pamięć </h1>
-    <p>Spróbuj osiągnąć jak najmniejszy wynik sprawdzeń par kart w ciągu paru poziomów gry!</p>
-</header>
-
-<main>
-    <article>
-
-        <div class="board">
-            <div id="contentUP">
-                <button class="buttonstart wow swing" onclick="level1()"><span>Start!</span></button>
-                @*<div class="card" id="c0"></div>
-                    <div class="card" id="c1"></div>
-                    <div class="clear: both"></div>
-                    <div class="card" id="c2"></div>
-                    <div class="card" id="c3"></div>*@
-
-                @*<div class="clear: both"></div>*@
-
-                @*<div class="card" id="c4"></div>
-                    <div class="card" id="c5"></div>
-                    <div class="card" id="c6"></div>
-                    <div class="card" id="c7"></div>*@
-
-                @*<div class="card" id="c8"></div>
-                    <div class="card" id="c9"></div>
-                    <div class="card" id="c10"></div>
-                    <div class="card" id="c11"></div>
-
-                    <div class="card" id="c12"></div>
-                    <div class="card" id="c13"></div>
-                    <div class="card" id="c14"></div>
-                    <div class="card" id="c15"></div>
-
-                    <div class="card" id="c13"></div>
-                    <div class="card" id="c14"></div>
-                    <div class="card" id="c15"></div>
-                    <div class="card" id="c16"></div>
-
-                    <div class="card" id="c13"></div>
-                    <div class="card" id="c14"></div>
-                    <div class="card" id="c15"></div>
-                    <div class="card" id="c16"></div>*@
-            </div>
-            <div id="score" class="score">Sprawdzonych par: 0! </div>
-            <p>Szukaj i wyznaczaj poprawne pary tych samych kart!</p>
-        </div>
-
-    </article>
-</main>
-
-@*<script src="jquery-3.3.1.min.js"></script>
-    <script src="memory.js"></script>*@
 
 
 
-@*<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+<div id="container">
+    <header>
+        <h1> Gra w pamięć </h1>
+        <p>Spróbuj osiągnąć jak najmniejszy wynik sprawdzeń par kart w ciągu paru poziomów gry!</p>
+    </header>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
+    <main>
+        <article>
 
+                <div class="board">
+                    <div id="contentUP">
+                        <button class="buttonstart wow swing" onclick="level1()"><span>Start!</span></button>
+                    </div>
+                    <div id="score" class="score">Sprawdzonych par: 0! </div>
+                    <p>Szukaj i wyznaczaj poprawne pary tych samych kart!</p>
+                </div>
+         
 
-<div class="col-md-12">
-     <input class="btn btn-primary" name="submitButton" id="btnSave" onclick="Save()" value="Save" type="button">
-    <hr />
-    <h2>Top 5 - Najmniej pomyłek:</h2>
+                <div id="downrecords">
+                    <hr>
+                    <div id="Top5" class="col-md-12">
+                        <h3>Top 5 - Najmniej pomyłek:</h3>
 
-    <table id="tblTop5" class="table table-bordered table-striped table-responsive table-hover">
-        <thead>
-            <tr>
-                <th align="left" class="recordstop5">Sprawdzonych par</th>
-                <th align="left" class="recordstop5">Data gry</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+                        <table id="tblTop5" class="table table-bordered table-striped table-responsive table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="recordstop5">Il. prób</th>
+                                    <th class="recordstop5">Data</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                  
+                    <div id="LastGame" class="col-md-12">
+                        @*<input class="btn btn-primary" name="submitButton" id="btnSave" onclick="Save()" value="Save" type="button">*@
+                        <h3>Ostatnie przejścia gry:</h3>
+                        <table id="tblLastGame" class="table table-bordered table-striped table-responsive table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="recordsLastGame">Nr. gry</th>
+                                    <th class="recordsLastGame">Il. prób</th>
+                                    <th class="recordsLastGame">Data</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+        </article>
+    </main>
 </div>
-
-<div class="col-md-12">
-    <input class="btn btn-primary" name="submitButton" id="btnSave" onclick="Save()" value="Save" type="button">
-    <hr />
-    <h2>Ostatnie gry:</h2>
-    <table id="tblLastGame" class="table table-bordered table-striped table-responsive table-hover">
-        <thead>
-            <tr>
-                <th align="left" class="recordsLastGame">Sprawdzonych par</th>
-                <th align="left" class="recordsLastGame">Data gry</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-</div>
-
-
 @section Scripts
     {
     <script type="text/javascript">
@@ -133,9 +72,9 @@
                     $.each(data, function (i, item) {
                         var rows = "<tr>"
                             + "<td class='recordstop5'>" + item.Number + "</td>"
-                      
+
                             + "<td class='recordstop5'>" + item.Date + "</td>"
-                     
+
                             + "</tr>";
                         $('#tblTop5 tbody').append(rows);
                     });
@@ -147,7 +86,7 @@
                     alert("ExceptionType: " + r.ExceptionType);
                 }
             });
-        
+
             $("#tblLastGame tbody tr").remove();
             $.ajax({
                 type: 'POST',
@@ -158,10 +97,9 @@
                     var items = '';
                     $.each(data, function (i, item) {
                         var rows = "<tr>"
-                            + "<td class='recordsLastGame'>" + item.Number + "</td>"
-                      
+                            + "<td class='recordsLastGame'>" + item.ResultsID + "</td>"
+                            + "<td class='recordstop5'>" + item.Number + "</td>"
                             + "<td class='recordsLastGame'>" + item.Date + "</td>"
-                     
                             + "</tr>";
                         $('#tblLastGame tbody').append(rows);
                     });
@@ -176,4 +114,4 @@
             return false;
         });
     </script>
-}  
+}
