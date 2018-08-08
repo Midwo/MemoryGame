@@ -16,6 +16,7 @@ function level1() {
     randomlist = shuffle(questionslevel.slice(0,4));
    // console.log(questionslevel1);
     level = 1;
+    numberHits = 0;
     var card0 = document.getElementById('card0');
     var card1 = document.getElementById('card1');
     var card2 = document.getElementById('card2');
@@ -203,6 +204,7 @@ function end()
 {
     $("#contentUP").html('Gratulacje! Przeszedłeś cała grę! </br> <button class="buttonstart wow swing" onclick="level1()"><span>Jeszcze raz</span></button>');
     Save();
+
 }
 function shuffle(a) {
     var cidx, ridx, tmp;

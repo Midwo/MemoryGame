@@ -11,7 +11,7 @@ namespace MemoryGame.Models
         [Key]
         public int ResultsID { get; set; }
         [Required]
-        public string Number { get; set; }
+        public int Number { get; set; }
         [Required]
         public string Date { get; set; }
     }

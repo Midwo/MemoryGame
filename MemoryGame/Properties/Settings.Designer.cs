@@ -26,10 +26,10 @@ namespace MemoryGame.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Test;Integrated Security=True")]
-        public string TestContext {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=test;Integrated Security=True")]
+        public string ResultsContext {
             get {
-                return ((string)(this["TestContext"]));
+                return ((string)(this["ResultsContext"]));
             }
         }
     }
