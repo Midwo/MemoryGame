@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hgroup>
+    <h1>Błąd.</h1>
+
+    <h2 class="text-center">Nie ma takiej strony [...]</h2>
+
+</hgroup>
+<div class="text-center">
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'">Wróć na główną</button>
+
+</div>
