@@ -38,6 +38,10 @@ namespace MemoryGame.Controllers
             return Json(records, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Policy()
+        {
+            return View();
+        }
     }
 
   

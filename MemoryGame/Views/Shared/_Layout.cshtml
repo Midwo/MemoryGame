@@ -30,7 +30,10 @@
     </div>*@
     <div class="container body-content">
         <div id="div-bolid">
-            <div id="info-game" onclick="location.reload()">
+            @*<div id="info-game" onclick="location.reload()">
+            <b>Zrestartuj grę!</b>
+        </div>*@
+            <div id="info-game" onclick="javascript:location.href='http://znajdzpare.mdwojak.pl/'" >
                 <b>Zrestartuj grę!</b>
             </div>
             <a href="https://mdwojak.pl/">
@@ -42,7 +45,10 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year -  Michał Dwojak</p>
+
+            <p>Wejdź na stronę główną: <a href="https://mdwojak.pl/">www.mdwojak.pl</a>.</p>
+
+            <p>&copy; @DateTime.Now.Year - Michał Dwojak  <a href='@Url.Action("Policy", "Home")'>Polityka prywatności</a></p>
         </footer>
     </div>
 
