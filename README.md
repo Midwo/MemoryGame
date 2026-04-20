@@ -10,8 +10,8 @@ The project remains available online as a playable demo.
 ---
 ## Screenshots
 
-<img src="https://github.com/Midwo/MemoryGame/blob/master/MemoryGame/screen1.png" width="600" alt="MemoryGame Screenshot 1">
-<img src="https://github.com/Midwo/MemoryGame/blob/master/MemoryGame/screen2.png" width="600" alt="MemoryGame Screenshot 1">
+<img src="https://github.com/Midwo/MemoryGame/blob/master/MemoryGame/screen1.png" width="800" alt="MemoryGame Screenshot 1">
+<img src="https://github.com/Midwo/MemoryGame/blob/master/MemoryGame/screen2.png" width="800" alt="MemoryGame Screenshot 1">
 
 ---
 
